@@ -28,6 +28,7 @@ tracyClean:
         Old clean:
             url: "clean.php"
             target: _blank
+            confirm: "Opravdu prosmazat?"
         Admin new window:
             url: "admin/"
             target: _blank

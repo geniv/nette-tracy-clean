@@ -42,7 +42,7 @@ trait TracyClean
 
             }
         }
-        $this->flashMessage('smazano ' . $itemCount . ' polozek');
+        $this->flashMessage('Bylo smazáno ' . $itemCount . ' položek');
         $this->redirect('this');
     }
 }
