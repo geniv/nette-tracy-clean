@@ -28,7 +28,7 @@ tracyClean:
         Old clean:
             url: "clean.php"
             target: _blank
-            confirm: "Opravdu prosmazat?"
+            confirm: "Opravdu promazat?"
         Admin new window:
             url: "admin/"
             target: _blank
@@ -47,7 +47,7 @@ extensions:
 #   - TracyClean\Bridges\Nette\Extension
 ```
 
-presenters:
+presenters (in case use named extension):
 ```php
 use TracyClean\TracyClean;
 
