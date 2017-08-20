@@ -11,7 +11,7 @@
                     <a
                             {ifset $url['target']}target="{$url['target']}"{/ifset}
                             {ifset $url['confirm']}onclick="return confirm({$url['confirm']});"{/ifset}
-                            href="{ifset $url['url']}{$url['url']}{else}{link $url['link']}{/ifset}">{$title}</a>
+                            href="{ifset $url['url']}{$url['url']}{else}{ifset $presenter}{link $url['link']}{else}#{/ifset}{/ifset}">{$title}</a>
                 </td>
             {else}
                 <td><a href="{$url}">{$title}</a></td>
