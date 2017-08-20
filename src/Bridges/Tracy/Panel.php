@@ -70,6 +70,8 @@ class Panel implements IBarPanel
         } catch (Exception $e) {
         }
 
+        $this->parameters['presenter'] = $presenter;
+
         // catch latte problem
         try {
             $latte = new Engine;
