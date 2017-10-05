@@ -29,7 +29,7 @@ class Extension extends CompilerExtension
         $config = $this->validateConfig($this->defaults);
 
         $builder->addDefinition($this->prefix('panel'))
-            ->setClass(Panel::class, [$config]);
+            ->setFactory(Panel::class, [$config]);
     }
 
 
