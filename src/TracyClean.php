@@ -50,32 +50,31 @@ trait TracyClean
 
 
     /**
-     * Create disable debug.
-     */
-    private function createDisableDebug()
-    {
-        $fileDisableDebug = $this->context->parameters['appDir'] . '/../disable-debug';
-        file_put_contents($fileDisableDebug, 'disable-debug');
-    }
-
-
-    /**
      * Handle internal disable debug.
      */
     public function handleInternalDisableDebug()
     {
-        $this->createDisableDebug();
+        $fileDisableDebug = $this->context->parameters['appDir'] . '/../disable-debug';
+        file_put_contents($fileDisableDebug, 'disable-debug');
         $this->flashMessage('Byl vypnut debug mod');
         $this->redirect('this');
     }
 
 
     /**
-     * Handle internal server error.
+     * Handle internal error 404.
      */
-    public function handleInternalServerError()
+    public function handleInternalError404()
     {
-        $this->createDisableDebug();
-        throw  new Exception('Refresh please...', IResponse::S500_INTERNAL_SERVER_ERROR);
+        $this->template->setFile($this->context->parameters['appDir'] . '/presenters/templates/Error/404.latte');
+    }
+
+
+    /**
+     * Handle internal error 500.
+     */
+    public function handleInternalError500()
+    {
+        $this->template->setFile($this->context->parameters['appDir'] . '/presenters/templates/Error/500.phtml');
     }
 }
