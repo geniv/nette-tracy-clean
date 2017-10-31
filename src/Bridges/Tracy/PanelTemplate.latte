@@ -3,8 +3,13 @@
     <table>
         <caption>Links</caption>
         <tr n:ifset="$InternalTracyClean">
-            <td><a href="{$InternalTracyClean}">Clean nette cache</a></td>
+            <td><a href="{$InternalTracyClean}">Clean cache</a></td>
+        </tr>
+        <tr n:ifset="$InternalDisableDebug">
             <td><a href="{$InternalDisableDebug}" onclick="return confirm('Disable debug?');">Disable debug</a></td>
+        </tr>
+        <tr n:ifset="$InternalServerError">
+            <td><a href="{$InternalServerError}" onclick="return confirm('Server error?');">Server error</a></td>
         </tr>
         <tr n:foreach="$link as $title => $url">
             {if is_array($url)}

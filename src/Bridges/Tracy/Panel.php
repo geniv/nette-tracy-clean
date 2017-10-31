@@ -68,6 +68,7 @@ class Panel implements IBarPanel
         try {
             $this->parameters['InternalTracyClean'] = ($presenter ? $presenter->link('InternalTracyClean!') : null);
             $this->parameters['InternalDisableDebug'] = ($presenter ? $presenter->link('InternalDisableDebug!') : null);
+            $this->parameters['InternalServerError'] = ($presenter ? $presenter->link('InternalServerError!') : null);
         } catch (Exception $e) {
         }
 
