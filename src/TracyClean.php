@@ -2,7 +2,7 @@
 
 namespace TracyClean;
 
-use Nette\Application\Responses\RedirectResponse;
+use Exception;
 use Nette\Http\IResponse;
 use Nette\Utils\Finder;
 
@@ -50,12 +50,21 @@ trait TracyClean
 
 
     /**
+     * Create disable debug.
+     */
+    private function createDisableDebug()
+    {
+        $fileDisableDebug = $this->context->parameters['appDir'] . '/../disable-debug';
+        file_put_contents($fileDisableDebug, 'disable-debug');
+    }
+
+
+    /**
      * Handle internal disable debug.
      */
     public function handleInternalDisableDebug()
     {
-        $fileDisableDebug = $this->context->parameters['appDir'] . '/../disable-debug';
-        file_put_contents($fileDisableDebug, 'disable-debug');
+        $this->createDisableDebug();
         $this->flashMessage('Byl vypnut debug mod');
         $this->redirect('this');
     }
@@ -66,8 +75,7 @@ trait TracyClean
      */
     public function handleInternalServerError()
     {
-        $this->handleInternalDisableDebug();    // internal call disable debug
-        $redirecResponse = new RedirectResponse('', IResponse::S500_INTERNAL_SERVER_ERROR);
-        $redirecResponse->send();
+        $this->createDisableDebug();
+        throw  new Exception('Refresh please...', IResponse::S500_INTERNAL_SERVER_ERROR);
     }
 }
