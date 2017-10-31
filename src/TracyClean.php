@@ -66,6 +66,7 @@ trait TracyClean
      */
     public function handleInternalServerError()
     {
+        $this->handleInternalDisableDebug();    // internal call disable debug
         $redirecResponse = new RedirectResponse('', IResponse::S500_INTERNAL_SERVER_ERROR);
         $redirecResponse->send();
     }
