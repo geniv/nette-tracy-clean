@@ -8,8 +8,11 @@
         <tr n:ifset="$InternalDisableDebug">
             <td><a href="{$InternalDisableDebug}" onclick="return confirm('Disable debug?');">Disable debug</a></td>
         </tr>
-        <tr n:ifset="$InternalServerError">
-            <td><a href="{$InternalServerError}" onclick="return confirm('Disable debug & server error?');">Server error</a></td>
+        <tr n:ifset="$InternalError404">
+            <td><a href="{$InternalError404}">Test error 404</a></td>
+        </tr>
+        <tr n:ifset="$InternalError500">
+            <td><a href="{$InternalError500}">Test error 500</a></td>
         </tr>
         <tr n:foreach="$link as $title => $url">
             {if is_array($url)}
