@@ -15,7 +15,7 @@ trait TracyClean
 {
 
     /**
-     * Internal handler for cleaner
+     * Handle internal tracy cleaner.
      */
     public function handleInternalTracyClean()
     {
@@ -43,6 +43,18 @@ trait TracyClean
             }
         }
         $this->flashMessage('Bylo smazáno ' . $itemCount . ' položek');
+        $this->redirect('this');
+    }
+
+
+    /**
+     * Handle internal disable debug.
+     */
+    public function handleInternalDisableDebug()
+    {
+        $fileDisableDebug = $this->context->parameters['appDir'] . '/../disable-debug';
+        file_put_contents($fileDisableDebug, 'disable-debug');
+        $this->flashMessage('Byl vypnut debug mod');
         $this->redirect('this');
     }
 }

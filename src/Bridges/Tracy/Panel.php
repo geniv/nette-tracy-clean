@@ -67,6 +67,7 @@ class Panel implements IBarPanel
         // catch trait problem
         try {
             $this->parameters['InternalTracyClean'] = ($presenter ? $presenter->link('InternalTracyClean!') : null);
+            $this->parameters['InternalDisableDebug'] = ($presenter ? $presenter->link('InternalDisableDebug!') : null);
         } catch (Exception $e) {
         }
 
