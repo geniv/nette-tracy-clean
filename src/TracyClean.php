@@ -2,6 +2,8 @@
 
 namespace TracyClean;
 
+use Nette\Application\Responses\RedirectResponse;
+use Nette\Http\IResponse;
 use Nette\Utils\Finder;
 
 
@@ -56,5 +58,15 @@ trait TracyClean
         file_put_contents($fileDisableDebug, 'disable-debug');
         $this->flashMessage('Byl vypnut debug mod');
         $this->redirect('this');
+    }
+
+
+    /**
+     * Handle internal server error.
+     */
+    public function handleInternalServerError()
+    {
+        $redirecResponse = new RedirectResponse('', IResponse::S500_INTERNAL_SERVER_ERROR);
+        $redirecResponse->send();
     }
 }
