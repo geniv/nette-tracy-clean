@@ -80,19 +80,39 @@ trait TracyClean
 
 
     /**
-     * Handle internal error 503.
+     * Prepare file.
+     *
+     * @param $source
+     * @return bool|null|string
      */
-    public function handleInternalError503()
+    private function prepareFile($source)
     {
-        $this->template->setFile($this->context->parameters['appDir'] . '/presenters/templates/Error/503.phtml');
+        $fileTempNam = tempnam(sys_get_temp_dir(), 'TracyClean');
+        if (copy($source, $fileTempNam)) {
+            $content = token_get_all(file_get_contents($fileTempNam));
+            $template = array_values(array_filter($content, function ($row) { return $row[0] == T_INLINE_HTML; }))[0][1];
+            if (file_put_contents($fileTempNam, $template)) {
+                return $fileTempNam;
+            }
+        }
+        return null;
     }
 
 
     /**
-     * Handle internal error maintenance.
+     * Handle internal error 503.
+     */
+    public function handleInternalError503()
+    {
+        $this->template->setFile($this->prepareFile($this->context->parameters['appDir'] . '/presenters/templates/Error/503.phtml'));
+    }
+
+
+    /**
+     * Handle internal maintenance.
      */
     public function handleInternalMaintenance()
     {
-        $this->template->setFile($this->context->parameters['wwwDir'] . '/.maintenance.php');
+        $this->template->setFile($this->prepareFile($this->context->parameters['wwwDir'] . '/.maintenance.php'));
     }
 }
