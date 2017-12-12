@@ -70,6 +70,8 @@ class Panel implements IBarPanel
             $this->parameters['InternalDisableDebug'] = ($presenter ? $presenter->link('InternalDisableDebug!') : null);
             $this->parameters['InternalError404'] = ($presenter ? $presenter->link('InternalError404!') : null);
             $this->parameters['InternalError500'] = ($presenter ? $presenter->link('InternalError500!') : null);
+            $this->parameters['InternalError503'] = ($presenter ? $presenter->link('InternalError503!') : null);
+            $this->parameters['InternalMaintenance'] = ($presenter ? $presenter->link('InternalMaintenance!') : null);
         } catch (Exception $e) {
         }
 
