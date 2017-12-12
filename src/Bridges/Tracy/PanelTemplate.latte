@@ -14,6 +14,12 @@
         <tr n:ifset="$InternalError500">
             <td><a href="{$InternalError500}">Test error 500</a></td>
         </tr>
+        <tr n:ifset="$InternalError503">
+            <td><a href="{$InternalError503}">Test error 503</a></td>
+        </tr>
+        <tr n:ifset="$InternalMaintenance">
+            <td><a href="{$InternalMaintenance}">Test maintenance</a></td>
+        </tr>
         <tr n:foreach="$link as $title => $url">
             {if is_array($url)}
                 <td>

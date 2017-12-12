@@ -77,4 +77,22 @@ trait TracyClean
     {
         $this->template->setFile($this->context->parameters['appDir'] . '/presenters/templates/Error/500.phtml');
     }
+
+
+    /**
+     * Handle internal error 503.
+     */
+    public function handleInternalError503()
+    {
+        $this->template->setFile($this->context->parameters['appDir'] . '/presenters/templates/Error/503.phtml');
+    }
+
+
+    /**
+     * Handle internal error maintenance.
+     */
+    public function handleInternalMaintenance()
+    {
+        $this->template->setFile($this->context->parameters['wwwDir'] . '/.maintenance.php');
+    }
 }
