@@ -16,7 +16,13 @@ class Extension extends CompilerExtension
 {
     /** @var array default values */
     private $defaults = [
-        'link' => [],
+        'TracyClean'   => true,
+        'DisableDebug' => true,
+        'Error404'     => true,
+        'Error500'     => true,
+        'Error503'     => true,
+        'Maintenance'  => true,
+        'link'         => [],
     ];
 
 

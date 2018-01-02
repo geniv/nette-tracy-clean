@@ -66,12 +66,12 @@ class Panel implements IBarPanel
 
         // catch trait problem
         try {
-            $this->parameters['InternalTracyClean'] = ($presenter ? $presenter->link('InternalTracyClean!') : null);
-            $this->parameters['InternalDisableDebug'] = ($presenter ? $presenter->link('InternalDisableDebug!') : null);
-            $this->parameters['InternalError404'] = ($presenter ? $presenter->link('InternalError404!') : null);
-            $this->parameters['InternalError500'] = ($presenter ? $presenter->link('InternalError500!') : null);
-            $this->parameters['InternalError503'] = ($presenter ? $presenter->link('InternalError503!') : null);
-            $this->parameters['InternalMaintenance'] = ($presenter ? $presenter->link('InternalMaintenance!') : null);
+            $this->parameters['InternalTracyClean'] = ($presenter && $this->parameters['TracyClean'] ? $presenter->link('InternalTracyClean!') : null);
+            $this->parameters['InternalDisableDebug'] = ($presenter && $this->parameters['DisableDebug'] ? $presenter->link('InternalDisableDebug!') : null);
+            $this->parameters['InternalError404'] = ($presenter && $this->parameters['Error404'] ? $presenter->link('InternalError404!') : null);
+            $this->parameters['InternalError500'] = ($presenter && $this->parameters['Error500'] ? $presenter->link('InternalError500!') : null);
+            $this->parameters['InternalError503'] = ($presenter && $this->parameters['Error503'] ? $presenter->link('InternalError503!') : null);
+            $this->parameters['InternalMaintenance'] = ($presenter && $this->parameters['Maintenance'] ? $presenter->link('InternalMaintenance!') : null);
         } catch (Exception $e) {
         }
 
