@@ -34,20 +34,11 @@ class Extension extends CompilerExtension
         $builder = $this->getContainerBuilder();
         $config = $this->validateConfig($this->defaults);
 
-        $builder->addDefinition($this->prefix('panel'))
+        $panel = $builder->addDefinition($this->prefix('panel'))
             ->setFactory(Panel::class, [$config]);
-    }
-
-
-    /**
-     * Before Compile.
-     */
-    public function beforeCompile()
-    {
-        $builder = $this->getContainerBuilder();
 
         // linked panel to tracy
         $builder->getDefinition('tracy.bar')
-            ->addSetup('?->addPanel(?)', ['@self', $this->prefix('@panel')]);
+            ->addSetup('addPanel', [$panel]);
     }
 }
