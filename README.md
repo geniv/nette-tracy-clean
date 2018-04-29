@@ -24,26 +24,26 @@ neon configure:
 ```neon
 # tracy clean
 tracyClean:
-    TracyClean: true
-    DisableDebug: true
-    Error404: true
-    Error500: true
-    Error503: true
-    Maintenance: true
+#    TracyClean: true
+#    DisableDebug: true
+#    Error404: true
+#    Error500: true
+#    Error503: true
+#    Maintenance: true
     link:
         Old clean:
             url: "clean.php"
             target: _blank
             confirm: "Opravdu promazat?"
-        Admin new window:
+        Admin:
             url: "admin/"
             target: _blank
-        Admin2:
-            url: "admin/"
-            target: _self
-        Admin: "admin/"
-        Pokus:
-            link: Homepage:vzor
+#        Admin2:
+#            url: "admin/"
+#            target: _self
+#        Admin: "admin/"
+#        Pokus:
+#            link: Homepage:vzor
 ```
 
 neon configure extension (it is possible use anonymous extension):
