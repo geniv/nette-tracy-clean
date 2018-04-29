@@ -1,9 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace TracyClean;
 
-use Exception;
-use Nette\Http\IResponse;
 use Nette\Utils\Finder;
 
 
@@ -82,10 +80,10 @@ trait TracyClean
     /**
      * Prepare file.
      *
-     * @param $source
+     * @param string $source
      * @return bool|null|string
      */
-    private function prepareFile($source)
+    private function prepareFile(string $source)
     {
         $fileTempNam = tempnam(sys_get_temp_dir(), 'TracyClean');
         if (copy($source, $fileTempNam)) {
