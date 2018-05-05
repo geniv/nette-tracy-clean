@@ -35,9 +35,8 @@ class Panel implements IBarPanel
      */
     public function __construct(array $parameters, Container $container)
     {
-        $this->container = $container;
-
         $this->parameters = $parameters;
+        $this->container = $container;
     }
 
 
