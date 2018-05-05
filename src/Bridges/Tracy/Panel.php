@@ -21,10 +21,10 @@ class Panel implements IBarPanel
 {
     use SmartObject;
 
-    /** @var Container container from DI */
-    private $container;
     /** @var array */
     private $parameters;
+    /** @var Container */
+    private $container;
 
 
     /**
