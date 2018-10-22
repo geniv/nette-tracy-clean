@@ -16,8 +16,10 @@ trait TracyClean
 
     /**
      * Handle internal tracy cleaner.
+     *
+     * @param bool $redirect
      */
-    public function handleInternalTracyClean()
+    public function handleInternalTracyClean(bool $redirect = true)
     {
         $dirs = [
             'temp/cache',
@@ -42,20 +44,28 @@ trait TracyClean
 
             }
         }
-        $this->flashMessage('Bylo smazáno ' . $itemCount . ' položek');
-        $this->redirect('this');
+
+        if ($redirect) {
+            $this->flashMessage('Bylo smazáno ' . $itemCount . ' položek');
+            $this->redirect('this');
+        }
     }
 
 
     /**
      * Handle internal disable debug.
+     *
+     * @param bool $redirect
      */
-    public function handleInternalDisableDebug()
+    public function handleInternalDisableDebug(bool $redirect = true)
     {
         $fileDisableDebug = $this->context->parameters['appDir'] . '/../disable-debug';
         file_put_contents($fileDisableDebug, 'disable-debug');
-        $this->flashMessage('Byl vypnut debug mod');
-        $this->redirect('this');
+
+        if ($redirect) {
+            $this->flashMessage('Byl vypnut debug mod');
+            $this->redirect('this');
+        }
     }
 
 
