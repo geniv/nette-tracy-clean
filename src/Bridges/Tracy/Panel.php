@@ -72,6 +72,8 @@ class Panel implements IBarPanel
             $this->parameters['InternalError500'] = ($presenter && $this->parameters['error500'] ? $presenter->link('InternalError500!') : null);
             $this->parameters['InternalError503'] = ($presenter && $this->parameters['error503'] ? $presenter->link('InternalError503!') : null);
             $this->parameters['InternalMaintenance'] = ($presenter && $this->parameters['maintenance'] ? $presenter->link('InternalMaintenance!') : null);
+            $this->parameters['roles'] = ($presenter && $presenter->user->identity && $this->parameters['roles'] ? $this->parameters['roles'] : []);
+            $this->parameters['rolesActive'] = ($presenter && $presenter->user->identity ? implode($presenter->user->identity->getRoles()) : null);
         } catch (Exception $e) {
         }
 
