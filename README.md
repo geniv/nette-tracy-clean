@@ -48,6 +48,10 @@ tracyClean:
 #        Admin: "admin/"
 #        Pokus:
 #            link: Homepage:vzor
+
+## OR
+
+    roles: @identityAuthorizatorAdmin.driver::getRole()
 ```
 
 neon configure extension (it is possible use anonymous extension):
