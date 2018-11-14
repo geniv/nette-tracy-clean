@@ -22,6 +22,7 @@ class Extension extends CompilerExtension
         'error500'     => true,
         'error503'     => true,
         'maintenance'  => true,
+        'roles'        => [],
         'link'         => [],
     ];
 

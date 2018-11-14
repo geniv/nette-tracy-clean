@@ -123,4 +123,17 @@ trait TracyClean
     {
         $this->template->setFile($this->prepareFile($this->context->parameters['wwwDir'] . '/.maintenance.php'));
     }
+
+
+    /**
+     * Handle internal role.
+     *
+     * @param string $role
+     */
+    public function handleInternalRole(string $role)
+    {
+        if ($this->user->identity) {
+            $this->user->identity->roles = [$role];
+        }
+    }
 }

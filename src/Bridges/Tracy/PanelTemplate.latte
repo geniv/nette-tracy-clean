@@ -20,6 +20,11 @@
         <tr n:ifset="$InternalMaintenance">
             <td><a href="{$InternalMaintenance}">Test maintenance</a></td>
         </tr>
+        <tr n:ifset="$roles" n:foreach="$roles as $role">
+            <td>
+                <a n:href="InternalRole! $role"><strong n:tag-if="$role==$rolesActive">Test role {$role}</strong></a>
+            </td>
+        </tr>
         <tr n:foreach="$link as $title => $url">
             {if is_array($url)}
                 <td>

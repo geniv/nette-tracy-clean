@@ -14,7 +14,7 @@ or
 
 require:
 ```json
-"php": ">=5.6.0",
+"php": ">=7.0.0",
 "nette/nette": ">=2.4.0"
 ```
 
@@ -30,6 +30,10 @@ tracyClean:
 #    error500: true
 #    error503: true
 #    maintenance: true
+#    roles:
+#        - guest
+#        - moderator
+#        - admin
     link:
         Old clean:
             url: "clean.php"
