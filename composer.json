@@ -15,8 +15,8 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0",
-    "nette/nette": ">=2.4.0"
+    "php": ">=7.0",
+    "nette/nette": ">=2.4"
   },
   "autoload": {
     "classmap": [

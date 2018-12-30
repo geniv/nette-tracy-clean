@@ -16,14 +16,15 @@ class Extension extends CompilerExtension
 {
     /** @var array default values */
     private $defaults = [
-        'tracyClean'   => true,
-        'disableDebug' => true,
-        'error404'     => true,
-        'error500'     => true,
-        'error503'     => true,
-        'maintenance'  => true,
-        'roles'        => [],
-        'link'         => [],
+        'tracyClean'     => true,
+        'disableDebug'   => true,
+        'error404'       => true,
+        'error500'       => true,
+        'error503'       => true,
+        'maintenance'    => true,
+        'tracyCleanDirs' => ['temp/cache', 'temp/sessions', 'admin/temp/cache', 'admin/temp/sessions'],
+        'roles'          => [],
+        'link'           => [],
     ];
 
 
