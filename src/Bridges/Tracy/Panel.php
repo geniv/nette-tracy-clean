@@ -41,6 +41,17 @@ class Panel implements IBarPanel
 
 
     /**
+     * Get tracy clean dirs.
+     *
+     * @return array
+     */
+    public function getTracyCleanDirs(): array
+    {
+        return $this->parameters['tracyCleanDirs'] ?? [];
+    }
+
+
+    /**
      * Renders HTML code for custom tab.
      *
      * @return string

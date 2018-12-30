@@ -3,6 +3,7 @@
 namespace TracyClean;
 
 use Nette\Utils\Finder;
+use TracyClean\Bridges\Tracy\Panel;
 
 
 /**
@@ -21,12 +22,17 @@ trait TracyClean
      */
     public function handleInternalTracyClean(bool $redirect = true)
     {
-        $dirs = [
-            'temp/cache',
-            'temp/sessions',
-            'admin/temp/cache',
-            'admin/temp/sessions',
-        ];
+        $panel = $this->context->getByType(Panel::class);
+        if ($panel) {
+            $dirs = $panel->getTracyCleanDirs();
+        } else {
+            $dirs = [
+                'temp/cache',
+                'temp/sessions',
+                'admin/temp/cache',
+                'admin/temp/sessions',
+            ];
+        }
         $path = $this->context->parameters['wwwDir'] . '/../';
 
         $itemCount = 0;

@@ -9,13 +9,13 @@ $ composer require geniv/nette-tracy-clean
 ```
 or
 ```json
-"geniv/nette-tracy-clean": ">=1.0.0"
+"geniv/nette-tracy-clean": "^1.0"
 ```
 
 require:
 ```json
-"php": ">=7.0.0",
-"nette/nette": ">=2.4.0"
+"php": ">=7.0",
+"nette/nette": ">=2.4"
 ```
 
 Include in application
@@ -30,10 +30,16 @@ tracyClean:
 #    error500: true
 #    error503: true
 #    maintenance: true
+#    roles: @identityAuthorizatorAdmin.driver::getRoles()
 #    roles:
 #        - guest
 #        - moderator
 #        - admin
+#    tracyCleanDirs:
+#        - temp/cache
+#        - temp/sessions
+#        - admin/temp/cache
+#        - admin/temp/sessions
     link:
         Old clean:
             url: "clean.php"
@@ -48,6 +54,10 @@ tracyClean:
 #        Admin: "admin/"
 #        Pokus:
 #            link: Homepage:vzor
+
+## OR
+
+    roles: @identityAuthorizatorAdmin.driver::getRole()
 ```
 
 neon configure extension (it is possible use anonymous extension):
